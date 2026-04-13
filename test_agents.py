@@ -4,6 +4,8 @@ import requests
 from dotenv import load_dotenv
 load_dotenv()
 #search_tool = DuckDuckGoSearchRun()
+api_key = '<<api_key>>'
+
 @tool
 def search_tool(query: str) -> str:
     """DuckDuckGoSearchRun module to search any query over web and provide the response back."""
@@ -19,7 +21,7 @@ def search_tool(query: str) -> str:
 @tool
 def get_weather_details(city:str) -> dict:
     """This tool will provide weather details for provided city"""
-    url = f"https://api.weatherstack.com/current?access_key=feee5677743b3ec5bd0b402ffe792c92&query={city}"
+    url = f"https://api.weatherstack.com/current?access_key=<<api_key>>&query={city}"
     result = requests.get(url)
     
     return result.json()

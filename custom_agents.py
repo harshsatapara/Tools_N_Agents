@@ -19,6 +19,8 @@ llm = ChatOpenAI()
 
 # tools creation
 
+api_key = "api_key"
+
 @tool
 def search_tool(query: str) -> str:
     """DuckDuckGoSearchRun module to search any query over web and provide the response back."""
@@ -54,7 +56,7 @@ def calculator(first_number: float , second_number: float , operator: str) -> fl
 #tool
 def get_stock_price(company_symbol:str) -> float:
     """Function to retrieve latest stock price for given company symbol"""
-    url = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={company_symbol}&apikey=S13EQQ9CISBBSGX6'
+    url = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={company_symbol}&apikey=<<api_key>>'
     
     result = requests.get(url).json()
     
